@@ -6,7 +6,7 @@
 command -v curl >/dev/null 2>&1 || { echo "Command 'curl' required but it's not installed.  Aborting." >&2; exit 1; }
 command -v jq >/dev/null 2>&1 || { echo "Command 'jq' required but it's not installed.  Aborting." >&2; exit 1; }
 
-if [ ! $BUILD_UNRESTRICTED_LICENSES = "true" ]; then
+if [ $BUILD_UNRESTRICTED_LICENSES = "true" ]; then
 	echo "Your build has unrestricted licenses enabled, therefore uploading to vagrant cloud is forbidden."
 	echo "Please rebuild with BUILD_UNRESTRICTED_LICENSES set to 'false' to be able to upload."
 	exit 1
