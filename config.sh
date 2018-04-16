@@ -11,6 +11,9 @@ export BUILD_GUEST_TYPE="Gentoo_64"
 export BUILD_GUEST_CPUS="2"
 export BUILD_GUEST_MEMORY="2048"
 
+export BUILD_BOX_PROVIDER="virtualbox"
+export BUILD_BOX_USERNAME="foobarlab"
+
 export BUILD_OUTPUT_FILE="$BUILD_BOX_NAME-$BUILD_BOX_VERSION.box"
 export BUILD_OUTPUT_FILE_TEMP="$BUILD_BOX_NAME.tmp.box"
 
