@@ -7,12 +7,11 @@ fi
 
 sudo ego sync
 
-# FIXME deny upload to vagrant cloud when license does not allow to do so
-## modify make.conf to accept any license (ACCEPT_LICENSE)
-#sudo sed -i 's/ACCEPT_LICENSE=\"\-\* @FREE @BINARY-REDISTRIBUTABLE\"/ACCEPT_LICENSE="*"/g' /etc/portage/make.conf
-#sudo cat /etc/portage/make.conf
+if [ $BUILD_UNRESTRICTED_LICENSES = "true" ]; then
+	sudo sed -i 's/ACCEPT_LICENSE=\"\-\* @FREE @BINARY-REDISTRIBUTABLE\"/ACCEPT_LICENSE="*"/g' /etc/portage/make.conf
+	sudo cat /etc/portage/make.conf
+fi
 
-# set profile flavor to 'server'
 sudo epro flavor server
 
 # FIXME replace /etc/motd - use a template ...
