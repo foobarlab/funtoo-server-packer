@@ -17,7 +17,7 @@ sudo epro flavor server
 # FIXME replace /etc/motd - use a template ...
 sudo rm -f /etc/motd
 cat <<'DATA' | sudo tee -a /etc/motd
-Funtoo GNU/Linux (server) - Experimental Vagrant box v0.0.2
+Funtoo GNU/Linux (server) - Experimental Vagrant box v0.0.3
 Build by Foobarlab
 DATA
 
