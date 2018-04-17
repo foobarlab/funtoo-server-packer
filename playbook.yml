@@ -1,0 +1,13 @@
+---
+
+# Example playbook for funtoo-server
+# see https://github.com/phred/ansible-examples/blob/master/pedantically_commented_playbook.yml
+# vim:ff=unix ts=2 sw=2 ai expandtab
+
+-
+  hosts: all
+  sudo: True
+  user: vagrant
+  tasks:
+    - name: Check that the server's alive
+      action: ping

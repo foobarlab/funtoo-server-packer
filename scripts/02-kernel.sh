@@ -5,6 +5,9 @@ if [ -z ${BUILD_RUN:-} ]; then
   exit 1
 fi
 
+# DEBUG skip kernel compile to speed up things
+exit 0
+
 if [ -f ${SCRIPTS}/scripts/kernel.config ]; then
 	sudo cp ${SCRIPTS}/scripts/kernel.config /usr/src
 fi

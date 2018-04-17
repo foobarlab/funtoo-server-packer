@@ -8,11 +8,14 @@ fi
 # install ansible for automation
 sudo emerge -vt app-admin/ansible
 
-# TODO add saltstack
-## install salt for automation
-#sudo mkdir -p /etc/portage/package.use
-#cat <<'DATA' | sudo tee -a /etc/portage/package.use/vbox-defaults
-#app-admin/salt portage vim-syntax gnupg keyring timelib
-#DATA
-#sudo emerge -vt app-admin/salt
-#sudo emerge -vt app-vim/salt-vim
+# configure ansible
+sudo mkdir -p /etc/ansible
+cat <<'DATA' | sudo tee -a /etc/ansible/ansible.cfg
+# fully disable SSH host key checking, see: https://www.vagrantup.com/docs/provisioning/ansible_local.html
+[defaults]
+host_key_checking = no
+
+[ssh_connection]
+ssh_args = -o ControlMaster=auto -o ControlPersist=60s -o UserKnownHostsFile=/dev/null -o IdentitiesOnly=yes
+
+DATA
