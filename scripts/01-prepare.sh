@@ -12,6 +12,11 @@ if [ $BUILD_UNRESTRICTED_LICENSES = "true" ]; then
 	sudo cat /etc/portage/make.conf
 fi
 
+sudo mkdir -p /etc/portage/package.use
+cat <<'DATA' | sudo tee -a /etc/portage/package.use/vbox-defaults
+app-misc/mc -edit
+DATA
+
 sudo epro flavor server
 
 # FIXME replace /etc/motd - use a template ...

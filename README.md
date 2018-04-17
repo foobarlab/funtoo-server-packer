@@ -13,7 +13,10 @@ It is based on the [Funtoo Core Vagrant box](https://github.com/foobarlab/funtoo
  - Vagrant user *vagrant* with password *vagrant* (can get superuser via sudo without password), additionally using the default ssh authorized keys provided by Vagrant (see https://github.com/hashicorp/vagrant/tree/master/keys) 
  - Kernel and GCC taken from [core box](https://github.com/foobarlab/funtoo-core-packer)
  - List of additional installed software:
-    - *salt* (see [SaltStack](https://saltstack.com/))
+    - services: *rsyslog, cronie*
+    - commandline tools: *htop, ncdu, ufed, screen, mc, iptraf-ng, links, ncftp, apg, bash-completion*
+    - *vim* as default editor
+    - *ansible* for automation
     - plus any additional software installed in the [core box](https://github.com/foobarlab/funtoo-core-packer)
 
 ### Download pre-build images
