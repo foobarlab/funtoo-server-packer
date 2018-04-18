@@ -14,10 +14,13 @@ sudo emerge -vt sys-process/cronie
 sudo rc-update add cronie default
 
 # some commandline helpers/utils
-sudo emerge -vt sys-fs/ncdu sys-process/htop app-misc/screen app-misc/mc net-analyzer/iptraf-ng \
-	            www-client/links net-ftp/ncftp app-shells/bash-completion
+sudo emerge -vt app-shells/bash-completion sys-fs/ncdu sys-process/htop app-misc/screen
 
-# custom setting for app-misc/mc:
+# some network related utils:	
+sudo emerge -vt net-analyzer/iptraf-ng www-client/links net-ftp/ncftp
+
+# install midnight commander + custom setting:
+sudo emerge -vt app-misc/mc
 cat <<'DATA' | sudo tee -a /root/.bashrc
 # restart mc with last used folder
 . /usr/libexec/mc/mc.sh
