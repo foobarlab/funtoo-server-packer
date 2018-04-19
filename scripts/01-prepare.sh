@@ -20,6 +20,7 @@ app-misc/mc -edit
 DATA
 
 sudo epro flavor server
+sudo epro list
 
 sudo rm -f /etc/motd
 cat <<'DATA' | sudo tee -a /etc/motd
