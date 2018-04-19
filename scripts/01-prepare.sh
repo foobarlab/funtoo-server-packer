@@ -8,6 +8,8 @@ fi
 sudo ego sync
 
 if [ $BUILD_UNRESTRICTED_LICENSES = "true" ]; then
+	sudo cp -f /etc/portage/make.conf /etc/portage/make.conf.bak
+	sudo sed -i 's/ bindist / -bindist /g' /etc/portage/make.conf
 	sudo sed -i 's/ACCEPT_LICENSE=\"\-\* @FREE @BINARY-REDISTRIBUTABLE\"/ACCEPT_LICENSE="*"/g' /etc/portage/make.conf
 	sudo cat /etc/portage/make.conf
 fi
