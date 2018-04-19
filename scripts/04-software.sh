@@ -59,6 +59,7 @@ setlocal nolist noai
 DATA
 
 # install and configure ansible for automation
+# TODO make ansible optional (config.sh)
 sudo emerge -vt app-admin/ansible
 sudo mkdir -p /etc/ansible
 cat <<'DATA' | sudo tee -a /etc/ansible/ansible.cfg
@@ -68,3 +69,12 @@ host_key_checking = no
 [ssh_connection]
 ssh_args = -o ControlMaster=auto -o ControlPersist=60s -o UserKnownHostsFile=/dev/null -o IdentitiesOnly=yes
 DATA
+
+## install and configure saltstack for automation
+## TODO make saltstack optional (config.sh)
+#sudo mkdir -p /etc/portage/package.use
+#cat <<'DATA' | sudo tee -a /etc/portage/package.use/vbox-defaults
+#app-admin/salt portage vim-syntax gnupg keyring timelib
+#DATA
+#sudo emerge -vt app-admin/salt
+#sudo emerge -vt app-vim/salt-vim
