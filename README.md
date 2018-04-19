@@ -14,7 +14,9 @@ It is based on the [Funtoo Core Vagrant box](https://github.com/foobarlab/funtoo
  - Kernel and GCC taken from [core box](https://github.com/foobarlab/funtoo-core-packer)
  - List of additional installed software:
     - services: *rsyslog, cronie*
-    - commandline tools: *htop, ncdu, ufed, screen, mc, iptraf-ng, links, ncftp, apg, bash-completion*
+    - commandline helpers/tools: *bash-completion, screen, htop, ncdu, mc*
+	- network utils: *iptraf-ng, links, ncftp*
+	- portage utils: *eix, ufed, flaggie*
     - *vim* as default editor
     - *ansible* for automation
     - plus any additional software installed in the [core box](https://github.com/foobarlab/funtoo-core-packer)
