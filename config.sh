@@ -1,7 +1,7 @@
 #!/bin/bash
 
 export BUILD_BOX_NAME="funtoo-server"
-export BUILD_BOX_VERSION="0.1.4"			# FIXME set to 0.2.x because we upgraded to Funtoo 1.2
+export BUILD_BOX_VERSION="0.2.0"
 
 export BUILD_PARENT_BOX_NAME="funtoo-core"
 export BUILD_PARENT_BOX_VAGRANTCLOUD_NAME="foobarlab/funtoo-core"
