@@ -12,13 +12,14 @@ It is based on the [Funtoo Core Vagrant box](https://github.com/foobarlab/funtoo
  - NAT Networking using DHCP
  - Vagrant user *vagrant* with password *vagrant* (can get superuser via sudo without password), additionally using the default ssh authorized keys provided by Vagrant (see https://github.com/hashicorp/vagrant/tree/master/keys) 
  - Kernel and GCC taken from [core box](https://github.com/foobarlab/funtoo-core-packer)
+ - Meta-Repo reflects upcoming Funtoo 1.2 release (optional, non-default)
  - List of additional installed software:
     - services: *rsyslog, cronie*
     - commandline helpers/tools: *bash-completion, screen, htop, ncdu, mc*
 	- network utils: *iptraf-ng, links, ncftp*
 	- portage utils: *eix, ufed, flaggie*
     - *vim* as default editor
-    - *ansible* for automation
+    - *ansible* and *saltstack* for automation
     - plus any additional software installed in the [core box](https://github.com/foobarlab/funtoo-core-packer)
 
 ### Download pre-build images

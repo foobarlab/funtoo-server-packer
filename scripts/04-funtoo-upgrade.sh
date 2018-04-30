@@ -33,6 +33,8 @@ DATA
 
 sudo cat /etc/ego.conf
 
+# FIXME if we already have gcc-6.4.0 installed (see funtoo-core box) we probably do not need to recompile (world update should be sufficient)
+
 sudo ego sync
 sudo emerge -u1 gcc
 sudo emerge -u1 glibc libnsl libtirpc rpcsvc-proto
