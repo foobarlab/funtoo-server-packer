@@ -16,6 +16,7 @@ else
 fi
 
 cat <<'DATA' | sudo tee -a /etc/ego.conf
+
 # upgrade funtoo to 1.2 branch, see: https://forums.funtoo.org/topic/1608-12-funtoo-linux-release/
 core-kit = 1.2-prime
 security-kit = 1.2-prime
