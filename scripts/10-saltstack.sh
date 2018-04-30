@@ -20,5 +20,4 @@ sudo mkdir -p /etc/portage/package.use
 cat <<'DATA' | sudo tee -a /etc/portage/package.use/vbox-defaults
 app-admin/salt portage vim-syntax gnupg keyring timelib
 DATA
-sudo emerge -vt app-admin/salt
-sudo emerge -vt app-vim/salt-vim
+sudo emerge -vt app-admin/salt app-vim/salt-vim
