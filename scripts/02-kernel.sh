@@ -5,6 +5,16 @@ if [ -z ${BUILD_RUN:-} ]; then
   exit 1
 fi
 
+if [ -z ${BUILD_UPDATE_KERNEL:-} ]; then
+	echo "BUILD_UPDATE_KERNEL was not set. Skipping kernel install ..."
+	exit 0
+else
+	if [ "$BUILD_UPDATE_KERNEL" = false ]; then
+		echo "BUILD_UPDATE_KERNEL set to FALSE. Skipping kernel install ..."
+		exit 0
+	fi
+fi
+
 if [ -f ${SCRIPTS}/scripts/kernel.config ]; then
 	sudo cp ${SCRIPTS}/scripts/kernel.config /usr/src
 fi
