@@ -1,11 +1,11 @@
 #!/bin/bash
 
 export BUILD_BOX_NAME="funtoo-server"
-export BUILD_BOX_VERSION="0.2.0"
+export BUILD_BOX_VERSION="0.2.1"
 
 export BUILD_PARENT_BOX_NAME="funtoo-core"
 export BUILD_PARENT_BOX_VAGRANTCLOUD_NAME="foobarlab/funtoo-core"
-export BUILD_PARENT_BOX_VAGRANTCLOUD_VERSION="0.1.9"
+export BUILD_PARENT_BOX_VAGRANTCLOUD_VERSION="0.1.10"
 
 export BUILD_GUEST_TYPE="Gentoo_64"
 export BUILD_GUEST_CPUS="4"
@@ -21,7 +21,7 @@ export BUILD_BOX_DESCRIPTION="$BUILD_BOX_NAME build @$(date --iso-8601=seconds)"
 
 export BUILD_UNRESTRICTED_LICENSES="false"	# set to true to allow all licenses (if true then vagrant cloud upload is disabled)
 
-export BUILD_UPDATE_KERNEL=false
+export BUILD_UPDATE_KERNEL=true
 
 export BUILD_UPGRADE_FUNTOO=true	# if true, Funtoo will be upgraded to 1.2 (non-default)
 
