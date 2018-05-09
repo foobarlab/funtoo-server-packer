@@ -25,7 +25,7 @@ fi
 # install spectre-metdown-checker to verify applied fixes
 cd /usr/local/src
 sudo git clone https://github.com/speed47/spectre-meltdown-checker.git
-sudo /usr/local/src/spectre-meltdown-checker/spectre-meltdown-checker.sh
+sudo /usr/local/src/spectre-meltdown-checker/spectre-meltdown-checker.sh 2>/dev/null || exit 0
 
 # to fix spectre v2 we need to recompile the kernel with gcc 7.3.1+
 cd /usr/src/linux && sudo make distclean
@@ -39,4 +39,4 @@ source /etc/profile
 sudo boot-update
 
 # FIXME most likely needs a reboot to load the new kernel and to show up-to-date info, TODO move to vagrantfile internal script
-sudo /usr/local/src/spectre-meltdown-checker/spectre-meltdown-checker.sh
+sudo /usr/local/src/spectre-meltdown-checker/spectre-meltdown-checker.sh 2>/dev/null || exit 0
