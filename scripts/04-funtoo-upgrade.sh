@@ -34,14 +34,13 @@ DATA
 
 sudo cat /etc/ego.conf
 
-# if we already have gcc-6.4.0 installed (see funtoo-core box) we probably do not need to recompile (simple world update should be sufficient)
 sudo ego sync
-#sudo emerge -u1 gcc	# not needed, gcc 6.4.0 already installed
+sudo emerge -u1 gcc		# NOTE: this should pull in gcc 7.3.1
 sudo emerge -u1 glibc libnsl libtirpc rpcsvc-proto
 sudo emerge -uvtDN @system
 sudo emerge -uvtDN @world
 sudo emerge @preserved-rebuild
-#sudo revdep-rebuild --library 'libstdc++.so.6' -- --exclude sys-devel/gcc	# not needed, gcc 6.4.0 already installed
+sudo revdep-rebuild --library 'libstdc++.so.6' -- --exclude sys-devel/gcc
 
 sudo etc-update --preen
 sudo env-update
