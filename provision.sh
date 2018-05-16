@@ -16,13 +16,14 @@ for script in \
   02-kernel \
   03-system-update \
   04-funtoo-upgrade \
-  05-logging \
-  06-cron \
-  07-cmdline-tools \
-  08-vim \
-  09-ansible \
-  10-saltstack \
-  11-cleanup
+  05-spectre-fix \
+  06-logging \
+  07-cron \
+  08-cmdline-tools \
+  09-vim \
+  10-ansible \
+  11-saltstack \
+  12-cleanup
 do
   echo "**** Running $script ******"
   "$SCRIPTS/scripts/$script.sh"
