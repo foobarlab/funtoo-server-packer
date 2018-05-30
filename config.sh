@@ -26,7 +26,7 @@ export BUILD_UPGRADE_FUNTOO=true	# if true, Funtoo will be upgraded to 1.2 (non-
 export BUILD_SPECTRE_FIX=true		# if true, force re-compile of kernel (will need BUILD_UPGRADE_FUNTOO set to true for gcc 7.3.1)
 
 export BUILD_INCLUDE_ANSIBLE=true
-export BUILD_INCLUDE_SALTSTACK=true
+export BUILD_INCLUDE_SALTSTACK=false
 
 if [ $# -eq 0 ]; then
 	echo "Executing $0 ..."
