@@ -6,7 +6,6 @@ export BUILD_BOX_NAME="funtoo-server"
 
 export BUILD_PARENT_BOX_NAME="funtoo-core"
 export BUILD_PARENT_BOX_VAGRANTCLOUD_NAME="foobarlab/funtoo-core"
-export BUILD_PARENT_BOX_VAGRANTCLOUD_VERSION="0.1.17"	# FIXME read this from vagrant cloud
 
 export BUILD_GUEST_TYPE="Gentoo_64"
 export BUILD_GUEST_CPUS="4"
@@ -29,6 +28,9 @@ export BUILD_SPECTRE_FIX=true		# if true, force re-compile of kernel (will need 
 
 export BUILD_INCLUDE_ANSIBLE=true
 export BUILD_INCLUDE_SALTSTACK=false
+
+# get the latest parent version from vagrant cloud api call:
+. parent_version.sh
 
 if [ $# -eq 0 ]; then
 	echo "Executing $0 ..."
