@@ -16,8 +16,20 @@ export BUILD_OUTPUT_FILE="$BUILD_BOX_NAME-$BUILD_BOX_VERSION.box"
 export BUILD_OUTPUT_FILE_TEMP="$BUILD_BOX_NAME.tmp.box"
 
 export BUILD_BOX_PROVIDER="virtualbox"
-export BUILD_BOX_RELEASE_NOTES="Funtoo 1.2 preview, GCC 7.3.1, Debian Kernel, includes Ansible"
-export BUILD_BOX_DESCRIPTION="$BUILD_BOX_RELEASE_NOTES<br>$BUILD_BOX_NAME build @$(date --iso-8601=seconds)"
+
+export BUILD_TIMESTAMP="$(date --iso-8601=seconds)"
+
+export BUILD_BOX_RELEASE_NOTES="Funtoo 1.2 preview, GCC 7.3.1, Debian Kernel, includes Ansible"		# edit this to reflect actual setup
+
+BUILD_BOX_DESCRIPTION="$BUILD_BOX_NAME version $BUILD_BOX_VERSION"
+if [ -z ${BUILD_NUMBER+x} ] || [ -z ${BUILD_TAG+x} ]; then
+	# without build number 
+	BUILD_BOX_DESCRIPTION="$BUILD_BOX_DESCRIPTION custom build"
+else
+	# for jenkins builds we got some additional information: BUILD_NUMBER, BUILD_ID, BUILD_DISPLAY_NAME, BUILD_TAG, BUILD_URL
+	BUILD_BOX_DESCRIPTION="$BUILD_BOX_DESCRIPTION build $BUILD_NUMBER ($BUILD_TAG)"
+fi
+export BUILD_BOX_DESCRIPTION="$BUILD_BOX_DESCRIPTION<br>created @$BUILD_TIMESTAMP<br>$BUILD_BOX_RELEASE_NOTES"
 
 export BUILD_UNRESTRICTED_LICENSES="false"	# set to true to allow all licenses (if true then vagrant cloud upload is disabled)
 
