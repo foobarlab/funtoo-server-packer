@@ -16,7 +16,7 @@ for script in \
   02-kernel \
   03-system-update \
   04-funtoo-upgrade \
-  05-spectre-fix \
+  05-spectre \
   06-logging \
   07-cron \
   08-cmdline-tools \

@@ -35,7 +35,7 @@ export BUILD_UNRESTRICTED_LICENSES="false"	# set to true to allow all licenses (
 
 export BUILD_UPDATE_KERNEL=true
 export BUILD_UPGRADE_FUNTOO=true	# if true, Funtoo will be upgraded to 1.2 (non-default), includes gcc 7.3.1
-export BUILD_SPECTRE_FIX=true		# if true, force re-compile of kernel (will need BUILD_UPGRADE_FUNTOO set to true for gcc 7.3.1)
+export BUILD_SPECTRE=true			# if true, report Spectre/Meltdown vulunerability status and try applying fixes
 
 export BUILD_INCLUDE_ANSIBLE=true
 export BUILD_INCLUDE_SALTSTACK=false
