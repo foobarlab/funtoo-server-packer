@@ -3,6 +3,13 @@
 
 system("./config.sh >/dev/null")
 
+$spectre_report = <<SCRIPT
+# ensure we have mounted our boot partition
+sudo mount /boot
+# report status
+sudo /usr/local/src/spectre-meltdown-checker/spectre-meltdown-checker.sh -v 2>/dev/null || true
+SCRIPT
+
 $script_cleanup = <<SCRIPT
 # stop rsyslog to allow zerofree to proceed
 sudo /etc/init.d/rsyslog stop
@@ -35,5 +42,6 @@ Vagrant.configure("2") do |config|
   config.ssh.pty = true
   config.ssh.insert_key = false
   config.vm.synced_folder '.', '/vagrant', disabled: true
+  config.vm.provision "spectre-report", type: "shell", inline: $spectre_report
   config.vm.provision "cleanup", type: "shell", inline: $script_cleanup
 end
