@@ -21,6 +21,9 @@ fi
 
 sudo emerge -vt sys-kernel/debian-sources
 cd /usr/src/linux && sudo make distclean
+
+# FIXME do 'make olddefconfig' on 'kernel.config' in case kernel config is outdated
+
 sudo genkernel --kernel-config=/usr/src/kernel.config --install initramfs all
 sudo eclean-kernel -n 1
 sudo emerge -vt @module-rebuild
