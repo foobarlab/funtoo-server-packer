@@ -19,6 +19,11 @@ if [ -f ${SCRIPTS}/scripts/kernel.config ]; then
 	sudo cp ${SCRIPTS}/scripts/kernel.config /usr/src
 fi
 
+if [ $BUILD_UNRESTRICTED_LICENSES = "true" ]; then
+	echo "BUILD_UNRESTRICTED_LICENSES is true, installing firmware files ..."
+	sudo emerge -vt sys-kernel/linux-firmware
+fi
+
 sudo emerge -vt sys-kernel/debian-sources
 cd /usr/src/linux && sudo make distclean
 
