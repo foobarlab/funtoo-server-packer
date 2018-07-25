@@ -32,7 +32,7 @@ else
 fi
 export BUILD_BOX_DESCRIPTION="$BUILD_BOX_DESCRIPTION<br>created @$BUILD_TIMESTAMP<br>$BUILD_BOX_RELEASE_NOTES"
 
-export BUILD_UNRESTRICTED_LICENSES="false"	# set to true to allow all licenses (if true then vagrant cloud upload is disabled)
+export BUILD_UNRESTRICTED_LICENSES=false	# set to true to allow all licenses (if true then vagrant cloud upload is disabled)
 
 export BUILD_UPDATE_KERNEL=false	# not needed; compiled in funtoo-core box; if true possibly a newer kernel.config should be provided
 export BUILD_UPGRADE_FUNTOO=true	# if true, Funtoo will be upgraded to 1.2 (non-default)
