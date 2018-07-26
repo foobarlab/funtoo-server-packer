@@ -22,8 +22,7 @@ for script in \
   08-cmdline-tools \
   09-vim \
   10-ansible \
-  11-saltstack \
-  12-cleanup
+  11-cleanup
 do
   echo "**** Running $script ******"
   "$SCRIPTS/scripts/$script.sh"

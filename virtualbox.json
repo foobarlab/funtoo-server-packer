@@ -39,8 +39,7 @@
           "BUILD_UNRESTRICTED_LICENSES={{user `unrestricted_licenses`}}",
           "BUILD_UPDATE_KERNEL={{user `update_kernel`}}",
           "BUILD_SPECTRE={{user `spectre`}}",
-          "BUILD_INCLUDE_ANSIBLE={{user `include_ansible`}}",
-          "BUILD_INCLUDE_SALTSTACK={{user `include_saltstack`}}"
+          "BUILD_INCLUDE_ANSIBLE={{user `include_ansible`}}"
       ],
       "expect_disconnect": false
   }],
@@ -63,7 +62,6 @@
     "update_kernel": "{{env `BUILD_UPDATE_KERNEL`}}",
     "spectre": "{{env `BUILD_SPECTRE`}}",
     "include_ansible": "{{env `BUILD_INCLUDE_ANSIBLE`}}",
-    "include_saltstack": "{{env `BUILD_INCLUDE_SALTSTACK`}}",
     "headless": "true",
     "username": "vagrant",
     "password": "vagrant"

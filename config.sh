@@ -38,7 +38,6 @@ export BUILD_UPDATE_KERNEL=false	# not needed; compiled in funtoo-core box; if t
 export BUILD_SPECTRE=true			# if true, report Spectre/Meltdown vulunerability status
 
 export BUILD_INCLUDE_ANSIBLE=true
-export BUILD_INCLUDE_SALTSTACK=false
 
 export BUILD_KEEP_MAX_CLOUD_BOXES=3		# set the maximum number of boxes to keep in Vagrant Cloud
 
