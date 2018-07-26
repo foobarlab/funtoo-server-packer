@@ -19,7 +19,7 @@ export BUILD_BOX_PROVIDER="virtualbox"
 
 export BUILD_TIMESTAMP="$(date --iso-8601=seconds)"
 
-export BUILD_BOX_RELEASE_NOTES="Funtoo 1.2 preview, Debian Kernel, GCC 7.3.1, Ansible"		# edit this to reflect actual setup
+export BUILD_BOX_RELEASE_NOTES="Funtoo 1.2, Debian Kernel, GCC 7.3.1, VirtualBox Guest Additions 5.2.16, Ansible"		# edit this to reflect actual setup
 
 BUILD_BOX_DESCRIPTION="$BUILD_BOX_NAME version $BUILD_BOX_VERSION"
 if [ -z ${BUILD_TAG+x} ]; then
@@ -35,7 +35,6 @@ export BUILD_BOX_DESCRIPTION="$BUILD_BOX_DESCRIPTION<br>created @$BUILD_TIMESTAM
 export BUILD_UNRESTRICTED_LICENSES=false	# set to true to allow all licenses (if true then vagrant cloud upload is disabled)
 
 export BUILD_UPDATE_KERNEL=false	# not needed; compiled in funtoo-core box; if true possibly a newer kernel.config should be provided
-export BUILD_UPGRADE_FUNTOO=true	# if true, Funtoo will be upgraded to 1.2 (non-default)
 export BUILD_SPECTRE=true			# if true, report Spectre/Meltdown vulunerability status
 
 export BUILD_INCLUDE_ANSIBLE=true
