@@ -22,7 +22,7 @@ else
 	fi
 fi
 
-# NOTE: cpu microcode firmware was already enabled in funtoo-core
+# NOTE: cpu microcode firmware was already enabled in 'funtoo-core' box
 
 # to fix spectre v2 we need to recompile the kernel with gcc 7.3.1+ (retpoline-aware compiler)
 cd /usr/src/linux && sudo make distclean
@@ -38,8 +38,8 @@ sudo boot-update
 # install spectre-metdown-checker
 cd /usr/local/src
 sudo git clone https://github.com/speed47/spectre-meltdown-checker.git
-sudo /usr/local/src/spectre-meltdown-checker/spectre-meltdown-checker.sh -v 2>/dev/null || true
 
 # report current Spectre/Meltdown status
-# TODO check status results: probably needs a reboot to load the new kernel and to show up-to-date info
+# TODO check status results: might need a reboot to load the new kernel and show up-to-date info
+sudo mount /boot || true
 sudo /usr/local/src/spectre-meltdown-checker/spectre-meltdown-checker.sh -v 2>/dev/null || true

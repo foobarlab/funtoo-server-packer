@@ -4,10 +4,20 @@
 system("./config.sh >/dev/null")
 
 $spectre_report = <<SCRIPT
-# ensure we have mounted our boot partition
-sudo mount /boot
-# report status
-sudo /usr/local/src/spectre-meltdown-checker/spectre-meltdown-checker.sh -v 2>/dev/null || true
+# run only when BUILD_SPECTRE is true
+if [ -z ${BUILD_SPECTRE:-} ]; then
+	echo "BUILD_SPECTRE was not set. Skipping report ..."
+else
+	if [ "$BUILD_SPECTRE" = false ]; then
+		echo "BUILD_SPECTRE set to FALSE. Skipping report ..."
+	else
+		echo "BUILD_SPECTRE set to TRUE. Reporting actual status ..."
+		# ensure we have mounted our boot partition
+		sudo mount /boot
+		# report status
+		sudo /usr/local/src/spectre-meltdown-checker/spectre-meltdown-checker.sh -v 2>/dev/null || true	
+	fi
+fi
 SCRIPT
 
 $script_cleanup = <<SCRIPT

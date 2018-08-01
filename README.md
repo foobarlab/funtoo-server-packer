@@ -12,14 +12,13 @@ It is based on the [Funtoo Core Vagrant box](https://github.com/foobarlab/funtoo
  - NAT Networking using DHCP
  - Vagrant user *vagrant* with password *vagrant* (can get superuser via sudo without password), additionally using the default ssh authorized keys provided by Vagrant (see https://github.com/hashicorp/vagrant/tree/master/keys) 
  - Kernel and GCC taken from [core box](https://github.com/foobarlab/funtoo-core-packer)
- - Meta-Repo reflects upcoming Funtoo 1.2 release (optional, non-default)
  - List of additional installed software:
-    - services: *rsyslog, cronie*
+    - services: *rsyslog, cronie, postfix*
     - commandline helpers/tools: *bash-completion, screen, htop, ncdu, mc*
-	- network utils: *iptraf-ng, links, ncftp*
+	- network utils: *iptraf-ng, links, ncftp, mutt*
 	- portage utils: *eix, ufed, flaggie*
     - *vim* as default editor
-    - *ansible* and *saltstack* for automation
+    - optional *ansible* for automation tasks
     - plus any additional software installed in the [core box](https://github.com/foobarlab/funtoo-core-packer)
 
 ### Download pre-build images
@@ -53,6 +52,24 @@ Get the latest build from Vagrant Cloud: [foobarlab/funtoo-server](https://app.v
 #### Power on the box (keeping previous state) 
 
  - Run ```./startup.sh```
+
+### Special use cases
+
+#### Show current build config
+
+ - Run ```./config.sh```
+
+#### Cleanup build environment (poweroff all Vagrant and Virtualbox machines)
+
+ - Run ```./clean_env.sh```
+
+#### Generate Vagrant Cloud API Token
+
+ - Run ```./vagrant_cloud_token.sh```
+
+#### Keep only a maximum number of boxes in Vagrant Cloud (experimental)
+
+ - Run ```./clean_cloud.sh```
 
 ## Feedback welcome
 

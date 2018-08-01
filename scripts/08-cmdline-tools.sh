@@ -9,7 +9,7 @@ fi
 sudo emerge -vt app-shells/bash-completion sys-fs/ncdu sys-process/htop app-misc/screen sys-apps/mlocate
 
 # some network related utils
-sudo emerge -vt net-analyzer/iptraf-ng www-client/links net-ftp/ncftp
+sudo emerge -vt net-analyzer/iptraf-ng www-client/links net-ftp/ncftp mail-client/mutt
 
 # install midnight commander + custom setting
 sudo emerge -vt app-misc/mc
