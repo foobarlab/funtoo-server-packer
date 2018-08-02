@@ -5,6 +5,9 @@ if [ -z ${BUILD_RUN:-} ]; then
   exit 1
 fi
 
+echo "$BUILD_BOX_DESCRIPTION" >> /home/vagrant/.funtoo_server
+sed -i 's/<br>/\n/g' /home/vagrant/.funtoo_server
+
 sudo ego sync
 
 if [ $BUILD_UNRESTRICTED_LICENSES = "true" ]; then
