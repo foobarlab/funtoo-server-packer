@@ -5,8 +5,8 @@ if [ -z ${BUILD_RUN:-} ]; then
   exit 1
 fi
 
-echo "$BUILD_BOX_DESCRIPTION" >> /home/vagrant/.funtoo_server
-sed -i 's/<br>/\n/g' /home/vagrant/.funtoo_server
+echo "$BUILD_BOX_DESCRIPTION" >> /home/vagrant/.$BUILD_BOX_NAME
+sed -i 's/<br>/\n/g' /home/vagrant/.$BUILD_BOX_NAME
 
 sudo ego sync
 
