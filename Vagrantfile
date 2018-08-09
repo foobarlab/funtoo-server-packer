@@ -15,7 +15,7 @@ else
 		# ensure we have mounted our boot partition
 		sudo mount /boot
 		# report status
-		sudo /usr/local/src/spectre-meltdown-checker/spectre-meltdown-checker.sh -v 2>/dev/null || true	
+		sudo spectre-meltdown-checker -v 2>/dev/null || true
 	fi
 fi
 SCRIPT
