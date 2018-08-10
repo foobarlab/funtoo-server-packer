@@ -36,10 +36,9 @@ source /etc/profile
 sudo boot-update
 
 # install spectre-metdown-checker
-cd /usr/local/src
-sudo git clone https://github.com/speed47/spectre-meltdown-checker.git
+sudo emerge -vt app-admin/spectre-meltdown-checker
 
 # report current Spectre/Meltdown status
 # TODO check status results: might need a reboot to load the new kernel and show up-to-date info
 sudo mount /boot || true
-sudo /usr/local/src/spectre-meltdown-checker/spectre-meltdown-checker.sh -v 2>/dev/null || true
+sudo spectre-meltdown-checker -v 2>/dev/null || true

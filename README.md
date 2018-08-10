@@ -17,6 +17,7 @@ It is based on the [Funtoo Core Vagrant box](https://github.com/foobarlab/funtoo
     - commandline helpers/tools: *bash-completion, screen, htop, ncdu, mc*
 	- network utils: *iptraf-ng, links, ncftp, mutt*
 	- portage utils: *eix, ufed, flaggie*
+	- *spectre-meltdown-checker* for mitigation detection
     - *vim* as default editor
     - optional *ansible* for automation tasks
     - plus any additional software installed in the [core box](https://github.com/foobarlab/funtoo-core-packer)
