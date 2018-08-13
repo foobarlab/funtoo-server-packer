@@ -6,7 +6,7 @@ if [ -z ${BUILD_RUN:-} ]; then
 fi
 
 # some commandline helpers/utils
-sudo emerge -vt app-shells/bash-completion sys-fs/ncdu sys-process/htop app-misc/screen sys-apps/mlocate
+sudo emerge -vt sys-process/lsof app-shells/bash-completion sys-fs/ncdu sys-process/htop app-misc/screen sys-apps/mlocate
 
 # some network related utils
 sudo emerge -vt net-analyzer/iptraf-ng www-client/links net-ftp/ncftp mail-client/mutt
