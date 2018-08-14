@@ -1,7 +1,7 @@
 # Funtoo Server Vagrant box
 
 This is a basic server-flavored core Funtoo Linux that is packaged into a Vagrant box file. Currently only a VirtualBox version is provided.
-It is based on the [Funtoo Core Vagrant box](https://github.com/foobarlab/funtoo-core-packer).
+It is based on the [Funtoo Core Vagrant box](https://github.com/foobarlab/funtoo-core-packer) and can be used for bootstrapping your own box.
 
 ### What's included?
 
