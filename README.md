@@ -14,12 +14,8 @@ It is based on the [Funtoo Core Vagrant box](https://github.com/foobarlab/funtoo
  - Kernel and GCC taken from [core box](https://github.com/foobarlab/funtoo-core-packer)
  - List of additional installed software:
     - services: *rsyslog, cronie, postfix*
-    - commandline helpers/tools: *lsof, bash-completion, screen, htop, ncdu, mc*
-	- network utils: *iptraf-ng, links, ncftp, mutt*
-	- portage utils: *eix, ufed, flaggie*
-	- *spectre-meltdown-checker* for mitigation detection
-    - *vim* as default editor
-    - optional *ansible* for automation tasks
+    - *spectre-meltdown-checker* for mitigation detection
+    - *ansible* for automation tasks
     - plus any additional software installed in the [core box](https://github.com/foobarlab/funtoo-core-packer)
 
 ### Download pre-build images

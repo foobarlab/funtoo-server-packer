@@ -5,7 +5,7 @@ if [ -z ${BUILD_RUN:-} ]; then
   exit 1
 fi
 
-# logging facility
+# syslog facility
 sudo emerge -vt app-admin/rsyslog
 sudo rc-update add rsyslog default
 

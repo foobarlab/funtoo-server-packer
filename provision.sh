@@ -17,10 +17,8 @@ for script in \
   03-system-update \
   04-spectre \
   05-services \
-  06-cmdline-tools \
-  07-vim \
-  08-ansible \
-  09-cleanup
+  06-ansible \
+  07-cleanup
 do
   echo "**** Running $script ******"
   "$SCRIPTS/scripts/$script.sh"
