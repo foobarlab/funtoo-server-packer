@@ -20,20 +20,22 @@ else
 fi
 SCRIPT
 
+# FIXME zerofree blocked because rootfs could not be mounted ro
 $script_cleanup = <<SCRIPT
 # stop rsyslog and postfix to allow zerofree to proceed
-sudo /etc/init.d/rsyslog stop
-sudo /etc/init.d/postfix stop
-# /boot (initially not mounted)
-sudo mount -o ro /dev/sda1
-sudo zerofree /dev/sda1
-# /
-sudo mount -o remount,ro /dev/sda4
-sudo zerofree /dev/sda4
+/etc/init.d/rsyslog stop
+/etc/init.d/postfix stop
+killall dhcpcd
+# /boot
+mount -o remount,ro /dev/sda1
+zerofree -v /dev/sda1
+# rootfs
+mount -o remount,ro /dev/sda4
+zerofree -v /dev/sda4
 # swap
-sudo swapoff /dev/sda3
-sudo bash -c 'dd if=/dev/zero of=/dev/sda3 2>/dev/null' || true
-sudo mkswap /dev/sda3
+swapoff /dev/sda3
+bash -c 'dd if=/dev/zero of=/dev/sda3 2>/dev/null' || true
+mkswap /dev/sda3
 SCRIPT
 
 Vagrant.configure("2") do |config|
@@ -57,5 +59,5 @@ Vagrant.configure("2") do |config|
   config.ssh.insert_key = false
   config.vm.synced_folder '.', '/vagrant', disabled: true
   config.vm.provision "spectre-report", type: "shell", inline: $spectre_report, env: {"BUILD_SPECTRE" => "#{ENV['BUILD_SPECTRE']}"}
-  config.vm.provision "cleanup", type: "shell", inline: $script_cleanup
+  config.vm.provision "cleanup", type: "shell", inline: $script_cleanup, privileged: true
 end
