@@ -20,20 +20,22 @@ else
 fi
 SCRIPT
 
-# FIXME zerofree blocked because rootfs could not be mounted ro
 $script_cleanup = <<SCRIPT
-# stop rsyslog and postfix to allow zerofree to proceed
+# stop all running services to be able to remount partitions read-only (needed for zerofree)
 /etc/init.d/rsyslog stop
 /etc/init.d/postfix stop
-killall dhcpcd
-# /boot
+/etc/init.d/dhcpcd stop
+/etc/init.d/acpid stop
+/etc/init.d/cronie stop
+/etc/init.d/udev stop
+# mount /boot read-only
 mount -o remount,ro /dev/sda1
 zerofree -v /dev/sda1
-# rootfs
+# mount rootfs read-only
 mount -o remount,ro /dev/sda4
 zerofree -v /dev/sda4
-# swap
-swapoff /dev/sda3
+# re-create swap area
+swapoff -v /dev/sda3
 bash -c 'dd if=/dev/zero of=/dev/sda3 2>/dev/null' || true
 mkswap /dev/sda3
 SCRIPT
