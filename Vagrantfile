@@ -21,18 +21,23 @@ fi
 SCRIPT
 
 $script_cleanup = <<SCRIPT
-# stop rsyslog to allow zerofree to proceed
-sudo /etc/init.d/rsyslog stop
-# /boot (initially not mounted)
-sudo mount -o ro /dev/sda1
-sudo zerofree /dev/sda1
-# /
-sudo mount -o remount,ro /dev/sda4
-sudo zerofree /dev/sda4
-# swap
-sudo swapoff /dev/sda3
-sudo bash -c 'dd if=/dev/zero of=/dev/sda3 2>/dev/null' || true
-sudo mkswap /dev/sda3
+# stop all running services to be able to remount partitions read-only (needed for zerofree)
+/etc/init.d/rsyslog stop
+/etc/init.d/postfix stop
+/etc/init.d/dhcpcd stop
+/etc/init.d/acpid stop
+/etc/init.d/cronie stop
+/etc/init.d/udev stop
+# mount /boot read-only
+mount -o remount,ro /dev/sda1
+zerofree -v /dev/sda1
+# mount rootfs read-only
+mount -o remount,ro /dev/sda4
+zerofree -v /dev/sda4
+# re-create swap area
+swapoff -v /dev/sda3
+bash -c 'dd if=/dev/zero of=/dev/sda3 2>/dev/null' || true
+mkswap /dev/sda3
 SCRIPT
 
 Vagrant.configure("2") do |config|
@@ -55,6 +60,6 @@ Vagrant.configure("2") do |config|
   config.ssh.pty = true
   config.ssh.insert_key = false
   config.vm.synced_folder '.', '/vagrant', disabled: true
-  config.vm.provision "spectre-report", type: "shell", inline: $spectre_report
-  config.vm.provision "cleanup", type: "shell", inline: $script_cleanup
+  config.vm.provision "spectre-report", type: "shell", inline: $spectre_report, env: {"BUILD_SPECTRE" => "#{ENV['BUILD_SPECTRE']}"}
+  config.vm.provision "cleanup", type: "shell", inline: $script_cleanup, privileged: true
 end
