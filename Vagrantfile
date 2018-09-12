@@ -21,8 +21,9 @@ fi
 SCRIPT
 
 $script_cleanup = <<SCRIPT
-# stop rsyslog to allow zerofree to proceed
+# stop rsyslog and postfix to allow zerofree to proceed
 sudo /etc/init.d/rsyslog stop
+sudo /etc/init.d/postfix stop
 # /boot (initially not mounted)
 sudo mount -o ro /dev/sda1
 sudo zerofree /dev/sda1
@@ -55,6 +56,6 @@ Vagrant.configure("2") do |config|
   config.ssh.pty = true
   config.ssh.insert_key = false
   config.vm.synced_folder '.', '/vagrant', disabled: true
-  config.vm.provision "spectre-report", type: "shell", inline: $spectre_report
+  config.vm.provision "spectre-report", type: "shell", inline: $spectre_report, env: {"BUILD_SPECTRE" => "#{ENV['BUILD_SPECTRE']}"}
   config.vm.provision "cleanup", type: "shell", inline: $script_cleanup
 end
