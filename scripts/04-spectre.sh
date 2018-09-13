@@ -39,6 +39,5 @@ sudo boot-update
 sudo emerge -vt app-admin/spectre-meltdown-checker
 
 # report current Spectre/Meltdown status
-# TODO check status results: might need a reboot to load the new kernel and show up-to-date info
 sudo mount /boot || true
 sudo spectre-meltdown-checker -v 2>/dev/null || true
