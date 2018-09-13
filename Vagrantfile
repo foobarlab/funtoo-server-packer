@@ -23,10 +23,8 @@ SCRIPT
 $script_cleanup = <<SCRIPT
 # stop all running services to be able to remount partitions read-only (needed for zerofree)
 /etc/init.d/rsyslog stop
-/etc/init.d/postfix stop
 /etc/init.d/dhcpcd stop
 /etc/init.d/acpid stop
-/etc/init.d/cronie stop
 /etc/init.d/udev stop
 # mount /boot read-only
 mount -o remount,ro /dev/sda1
