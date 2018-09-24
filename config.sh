@@ -39,7 +39,7 @@ export BUILD_SPECTRE=true			# if true, report Spectre/Meltdown vulunerability st
 
 export BUILD_INCLUDE_ANSIBLE=true
 
-export BUILD_KEEP_MAX_CLOUD_BOXES=3		# set the maximum number of boxes to keep in Vagrant Cloud
+export BUILD_KEEP_MAX_CLOUD_BOXES=7		# set the maximum number of boxes to keep in Vagrant Cloud
 
 # get the latest parent version from vagrant cloud api call:
 . parent_version.sh
