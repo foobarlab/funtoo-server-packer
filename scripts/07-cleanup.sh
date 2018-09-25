@@ -18,7 +18,8 @@ sudo etc-update --automode -5				# force 'auto-merge' for remaining configs
 
 sudo boot-update
 
-cd /usr/src/linux && sudo make distclean
+cd /usr/src/linux
+sudo make distclean
 
 sudo rm -f /etc/resolv.conf
 sudo rm -f /etc/resolv.conf.bak
