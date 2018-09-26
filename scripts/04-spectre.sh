@@ -9,7 +9,7 @@ if [ -z ${BUILD_SPECTRE:-} ]; then
 	echo "BUILD_SPECTRE was not set. Skipping ..."
 	exit 0
 else
-	if [ "$BUILD_SPECTRE" = false ]; then
+	if [ "$BUILD_SPECTRE" = "false" ]; then
 		echo "BUILD_SPECTRE set to FALSE. Skipping ..."
 		exit 0
 	else
@@ -22,18 +22,17 @@ else
 	fi
 fi
 
-# NOTE: cpu microcode firmware was already enabled in 'funtoo-core' box
-
-# to fix spectre v2 we need to recompile the kernel with gcc 7.3.1+ (retpoline-aware compiler)
-cd /usr/src/linux && sudo make distclean
-sudo genkernel --kernel-config=/usr/src/kernel.config --install initramfs all
-sudo eclean-kernel -n 1
-sudo emerge -vt @module-rebuild
-
-sudo env-update
-source /etc/profile
-
-sudo boot-update
+## NOTE: cpu microcode firmware was already enabled in 'funtoo-core' box
+## to fix spectre v2 we need to recompile the kernel with gcc 7.3.1+ (retpoline-aware compiler)
+#cd /usr/src/linux && sudo make distclean
+#sudo genkernel --kernel-config=/usr/src/kernel.config --install initramfs all
+#sudo eclean-kernel -n 1
+#sudo emerge -vt @module-rebuild
+#
+#sudo env-update
+#source /etc/profile
+#
+#sudo boot-update
 
 # install spectre-metdown-checker
 sudo emerge -vt app-admin/spectre-meltdown-checker

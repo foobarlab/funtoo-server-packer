@@ -32,12 +32,12 @@ else
 fi
 export BUILD_BOX_DESCRIPTION="$BUILD_BOX_DESCRIPTION<br>created @$BUILD_TIMESTAMP<br>$BUILD_BOX_RELEASE_NOTES"
 
-export BUILD_UNRESTRICTED_LICENSES=false	# set to true to allow all licenses (if true then vagrant cloud upload is disabled)
+export BUILD_UNRESTRICTED_LICENSES="false"	# set to true to allow all licenses (if true then vagrant cloud upload is disabled)
 
-export BUILD_UPDATE_KERNEL=false	# not needed; compiled in funtoo-core box; if true possibly a newer kernel.config should be provided
-export BUILD_SPECTRE=true			# if true, report Spectre/Meltdown vulunerability status, implies recompiling the kernel
+export BUILD_UPDATE_KERNEL="false"	# not needed; compiled in funtoo-core box; if true possibly a newer kernel.config should be provided
+export BUILD_SPECTRE="true"			# if true, report Spectre/Meltdown vulunerability status
 
-export BUILD_INCLUDE_ANSIBLE=true
+export BUILD_INCLUDE_ANSIBLE="true"
 
 export BUILD_KEEP_MAX_CLOUD_BOXES=7		# set the maximum number of boxes to keep in Vagrant Cloud
 

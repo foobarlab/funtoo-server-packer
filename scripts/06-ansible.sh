@@ -9,7 +9,7 @@ if [ -z ${BUILD_INCLUDE_ANSIBLE:-} ]; then
 	echo "BUILD_INCLUDE_ANSIBLE was not set. Skipping ..."
 	exit 0
 else
-	if [ "$BUILD_INCLUDE_ANSIBLE" = false ]; then
+	if [ "$BUILD_INCLUDE_ANSIBLE" = "false" ]; then
 		echo "BUILD_INCLUDE_ANSIBLE set to FALSE. Skipping ..."
 		exit 0
 	fi	
