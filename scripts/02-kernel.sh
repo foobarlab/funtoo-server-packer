@@ -9,7 +9,7 @@ if [ -z ${BUILD_UPDATE_KERNEL:-} ]; then
 	echo "BUILD_UPDATE_KERNEL was not set. Skipping kernel install ..."
 	exit 0
 else
-	if [ "$BUILD_UPDATE_KERNEL" = false ]; then
+	if [ "$BUILD_UPDATE_KERNEL" = "false" ]; then
 		echo "BUILD_UPDATE_KERNEL set to FALSE. Skipping kernel install ..."
 		exit 0
 	fi
