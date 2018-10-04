@@ -32,7 +32,7 @@ fi
 #sudo env-update
 #source /etc/profile
 #
-#sudo boot-update
+#sudo ego boot
 
 # install spectre-metdown-checker
 sudo emerge -vt app-admin/spectre-meltdown-checker
