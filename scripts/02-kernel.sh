@@ -40,4 +40,4 @@ sudo emerge -vt @module-rebuild
 sudo env-update
 source /etc/profile
 
-sudo ego boot
+sudo boot-update

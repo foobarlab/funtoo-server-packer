@@ -16,7 +16,7 @@ sudo rm -f /etc/._cfg0000_genkernel.conf	# prevent replacement of our genkernel.
 sudo find /etc/ -name '._cfg*'				# DEBUG: list all remaining config files needing an update
 sudo etc-update --automode -5				# force 'auto-merge' for remaining configs 
 
-sudo ego boot
+sudo boot-update
 
 cd /usr/src/linux
 sudo make distclean
