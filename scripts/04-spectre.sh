@@ -39,4 +39,4 @@ sudo emerge -vt app-admin/spectre-meltdown-checker
 
 # report current Spectre/Meltdown status
 sudo mount /boot || true
-sudo spectre-meltdown-checker -v 2>/dev/null || true
+sudo spectre-meltdown-checker -v --explain 2>/dev/null || true
