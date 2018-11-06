@@ -26,6 +26,8 @@ DATA
 sudo epro flavor server
 sudo epro list
 
+lsblk
+
 sudo rm -f /etc/motd
 cat <<'DATA' | sudo tee -a /etc/motd
 Funtoo GNU/Linux (BUILD_BOX_NAME) - Vagrant box BUILD_BOX_VERSION
@@ -41,8 +43,3 @@ sudo emerge -1v portage
 
 sudo env-update
 source /etc/profile
-
-# debug: print free space/disk usage
-sudo mount /boot
-df -h
-lsblk
