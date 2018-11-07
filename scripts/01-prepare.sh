@@ -26,6 +26,8 @@ DATA
 sudo epro flavor server
 sudo epro list
 
+lsblk
+
 sudo rm -f /etc/motd
 cat <<'DATA' | sudo tee -a /etc/motd
 Funtoo GNU/Linux (BUILD_BOX_NAME) - Vagrant box BUILD_BOX_VERSION
