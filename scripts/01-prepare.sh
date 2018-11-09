@@ -8,8 +8,6 @@ fi
 echo "$BUILD_BOX_DESCRIPTION" >> /home/vagrant/.$BUILD_BOX_NAME
 sed -i 's/<br>/\n/g' /home/vagrant/.$BUILD_BOX_NAME
 
-sudo ego sync
-
 if [ $BUILD_UNRESTRICTED_LICENSES = "true" ]; then
 	sudo cp -f /etc/portage/make.conf /etc/portage/make.conf.bak
 	sudo sed -i 's/ bindist / -bindist /g' /etc/portage/make.conf
@@ -28,6 +26,8 @@ cat <<'DATA' | sudo tee -a /etc/portage/package.mask/vbox-defaults
 # workaround: rsyslog-0.39.0 failed to compile, temporary masked
 >=app-admin/rsyslog-0.39.0
 DATA
+
+sudo ego sync
 
 sudo epro flavor server
 sudo epro list
