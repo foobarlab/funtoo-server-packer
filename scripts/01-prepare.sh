@@ -20,7 +20,7 @@ fi
 sudo mkdir -p /etc/portage/package.use
 cat <<'DATA' | sudo tee -a /etc/portage/package.use/vbox-defaults
 app-misc/mc -edit
-app-admin/rsyslog gnutls
+app-admin/rsyslog gnutls normalize
 DATA
 
 sudo epro flavor server
