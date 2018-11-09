@@ -8,6 +8,8 @@ fi
 echo "$BUILD_BOX_DESCRIPTION" >> /home/vagrant/.$BUILD_BOX_NAME
 sed -i 's/<br>/\n/g' /home/vagrant/.$BUILD_BOX_NAME
 
+sudo ego sync
+
 if [ $BUILD_UNRESTRICTED_LICENSES = "true" ]; then
 	sudo cp -f /etc/portage/make.conf /etc/portage/make.conf.bak
 	sudo sed -i 's/ bindist / -bindist /g' /etc/portage/make.conf
@@ -18,16 +20,10 @@ fi
 sudo mkdir -p /etc/portage/package.use
 cat <<'DATA' | sudo tee -a /etc/portage/package.use/vbox-defaults
 app-misc/mc -edit
-app-admin/rsyslog gnutls
+# workaround: rsyslog-0.39.0 failed compilation with liblognorm, temp disable 'normalize' USE flag
+#app-admin/rsyslog gnutls
+app-admin/rsyslog gnutls -normalize
 DATA
-
-sudo mkdir -p /etc/portage/package.mask
-cat <<'DATA' | sudo tee -a /etc/portage/package.mask/vbox-defaults
-# workaround: rsyslog-0.39.0 failed to compile, temporary masked
->=app-admin/rsyslog-0.39.0
-DATA
-
-sudo ego sync
 
 sudo epro flavor server
 sudo epro list
