@@ -20,9 +20,7 @@ fi
 sudo mkdir -p /etc/portage/package.use
 cat <<'DATA' | sudo tee -a /etc/portage/package.use/vbox-defaults
 app-misc/mc -edit
-# workaround: rsyslog-0.39.0 failed compilation with liblognorm, temp disable 'normalize' USE flag
-#app-admin/rsyslog gnutls
-app-admin/rsyslog gnutls -normalize
+app-admin/rsyslog gnutls
 DATA
 
 sudo epro flavor server
