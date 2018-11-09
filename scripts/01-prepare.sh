@@ -23,6 +23,12 @@ app-misc/mc -edit
 app-admin/rsyslog gnutls
 DATA
 
+sudo mkdir -p /etc/portage/package.mask
+cat <<'DATA' | sudo tee -a /etc/portage/package.mask/vbox-defaults
+# workaround: rsyslog-0.39.0 failed to compile, temporary masked
+>=app-admin/rsyslog-0.39.0
+DATA
+
 sudo epro flavor server
 sudo epro list
 
