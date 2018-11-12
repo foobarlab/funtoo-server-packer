@@ -24,7 +24,7 @@ if [ $BUILD_UNRESTRICTED_LICENSES = "true" ]; then
 	sudo emerge -vt sys-kernel/linux-firmware
 fi
 
-sudo emerge -vt sys-kernel/debian-sources
+sudo emerge -vt sys-kernel/debian-sources-lts
 cd /usr/src/linux && sudo make distclean
 
 # apply 'make olddefconfig' on 'kernel.config' in case kernel config is outdated

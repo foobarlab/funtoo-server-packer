@@ -19,7 +19,7 @@ export BUILD_BOX_PROVIDER="virtualbox"
 
 export BUILD_TIMESTAMP="$(date --iso-8601=seconds)"
 
-export BUILD_BOX_RELEASE_NOTES="Funtoo 1.2, Debian Kernel, GCC 7.3.1, VirtualBox Guest Additions 5.2.22, Ansible"		# edit this to reflect actual setup
+export BUILD_BOX_RELEASE_NOTES="Funtoo 1.2, Debian Kernel 4.9 LTS, GCC 7.3.1, VirtualBox Guest Additions 5.2.22, Ansible"		# edit this to reflect actual setup
 
 BUILD_BOX_DESCRIPTION="$BUILD_BOX_NAME version $BUILD_BOX_VERSION"
 if [ -z ${BUILD_TAG+x} ]; then
@@ -27,21 +27,21 @@ if [ -z ${BUILD_TAG+x} ]; then
 	BUILD_BOX_DESCRIPTION="$BUILD_BOX_DESCRIPTION (custom)"
 else
 	# with env var BUILD_TAG set
-	# NOTE: for jenkins builds we got some additional information: BUILD_NUMBER, BUILD_ID, BUILD_DISPLAY_NAME, BUILD_TAG, BUILD_URL
+	# NOTE: for Jenkins builds we got some additional information: BUILD_NUMBER, BUILD_ID, BUILD_DISPLAY_NAME, BUILD_TAG, BUILD_URL
 	BUILD_BOX_DESCRIPTION="$BUILD_BOX_DESCRIPTION ($BUILD_TAG)"
 fi
 export BUILD_BOX_DESCRIPTION="$BUILD_BOX_DESCRIPTION<br>created @$BUILD_TIMESTAMP<br>$BUILD_BOX_RELEASE_NOTES"
 
-export BUILD_UNRESTRICTED_LICENSES="false"	# set to true to allow all licenses (if true then vagrant cloud upload is disabled)
+export BUILD_UNRESTRICTED_LICENSES="false"	# set to true to allow all licenses (if true then Vagrant Cloud upload is disabled)
 
-export BUILD_UPDATE_KERNEL="false"	# not needed; compiled in funtoo-core box; if true possibly a newer kernel.config should be provided
+export BUILD_UPDATE_KERNEL="false"	# not needed; compiled in 'funtoo-core' box; if true possibly a newer kernel.config should be provided
 export BUILD_SPECTRE="true"			# if true, report Spectre/Meltdown vulunerability status
 
 export BUILD_INCLUDE_ANSIBLE="true"
 
 export BUILD_KEEP_MAX_CLOUD_BOXES=7		# set the maximum number of boxes to keep in Vagrant Cloud
 
-# get the latest parent version from vagrant cloud api call:
+# get the latest parent version from Vagrant Cloud API call:
 . parent_version.sh
 
 if [ $# -eq 0 ]; then

@@ -22,8 +22,8 @@ else
 	fi
 fi
 
-## NOTE: cpu microcode firmware was already enabled in 'funtoo-core' box
-## to fix spectre v2 we need to recompile the kernel with gcc 7.3.1+ (retpoline-aware compiler)
+## NOTE: CPU microcode firmware was already enabled in 'funtoo-core' box
+## to fix Spectre v2 we need to recompile the kernel with GCC 7.3.1+ (retpoline-aware compiler)
 #cd /usr/src/linux && sudo make distclean
 #sudo genkernel --kernel-config=/usr/src/kernel.config --install initramfs all
 #sudo eclean-kernel -n 1
