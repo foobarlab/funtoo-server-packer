@@ -9,14 +9,14 @@ It is based on the [Funtoo Core Vagrant box](https://github.com/foobarlab/funtoo
  - Architecture: pure64, generic_64 (currently only on Intel CPU, no AMD support)
  - 100 GB dynamic sized HDD image (ext4)
  - Timezone: ```UTC```
- - NAT Networking using DHCP
- - Vagrant user *vagrant* with password *vagrant* (can get superuser via sudo without password), additionally using the default ssh authorized keys provided by Vagrant (see https://github.com/hashicorp/vagrant/tree/master/keys) 
+ - NAT Networking using DHCP (virtio)
+ - Vagrant user *vagrant* with password *vagrant* (can get superuser via sudo without password), additionally using the default SSH authorized keys provided by Vagrant (see https://github.com/hashicorp/vagrant/tree/master/keys) 
  - Kernel and GCC taken from [core box](https://github.com/foobarlab/funtoo-core-packer)
  - List of additional installed software:
-    - services: *rsyslog* for logging
+    - Services: *rsyslog* for logging
     - *spectre-meltdown-checker* for mitigation detection
     - *ansible* for automation tasks
-    - plus any additional software installed in the [core box](https://github.com/foobarlab/funtoo-core-packer)
+    - Plus any additional software installed in the [core box](https://github.com/foobarlab/funtoo-core-packer)
 
 ### Download pre-build images
 
@@ -56,7 +56,7 @@ Get the latest build from Vagrant Cloud: [foobarlab/funtoo-server](https://app.v
 
  - Run ```./config.sh```
 
-#### Cleanup build environment (poweroff all Vagrant and Virtualbox machines)
+#### Cleanup build environment (poweroff all Vagrant and VirtualBox machines)
 
  - Run ```./clean_env.sh```
 
