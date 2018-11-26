@@ -18,7 +18,8 @@ for script in \
   04-spectre \
   05-services \
   06-ansible \
-  07-cleanup
+  07-postprocess \
+  08-cleanup
 do
   echo "**** Running $script ******"
   "$SCRIPTS/scripts/$script.sh"
