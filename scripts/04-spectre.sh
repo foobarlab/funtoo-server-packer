@@ -22,19 +22,6 @@ else
 	fi
 fi
 
-## NOTE: CPU microcode firmware was already enabled in 'funtoo-core' box
-## to fix Spectre v2 we need to recompile the kernel with GCC 7.3.1+ (retpoline-aware compiler)
-#cd /usr/src/linux && sudo make distclean
-#sudo genkernel --kernel-config=/usr/src/kernel.config --install initramfs all
-#sudo eclean-kernel -n 1
-#sudo emerge -vt @module-rebuild
-#
-#sudo env-update
-#source /etc/profile
-#
-#sudo boot-update
-
-# install spectre-metdown-checker
 sudo emerge -vt app-admin/spectre-meltdown-checker
 
 # report current Spectre/Meltdown status
