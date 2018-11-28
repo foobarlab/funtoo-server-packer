@@ -12,10 +12,13 @@ sudo emerge --depclean
 
 sudo find /etc/ -name '._cfg*'					# DEBUG: list all config files needing an update
 sudo etc-update --verbose --preen				# auto-merge trivial changes
-sudo rm -f /etc/._cfg0000_boot.conf				# prevent replacement of our boot.conf
-sudo rm -f /etc/._cfg0000_genkernel.conf		# prevent replacement of our genkernel.conf
-sudo rm -f /etc/._cfg0000_updatedb.conf			# prevent replacement of our updatedb.conf
-sudo rm -f /etc/ansible/._cfg0000_ansible.cfg	# prevent replacement of our ansible.cfg
+
+# prevent replacement of our modified configs:
+sudo rm -f /etc/._cfg0000_boot.conf
+sudo rm -f /etc/._cfg0000_genkernel.conf
+sudo rm -f /etc/._cfg0000_updatedb.conf
+sudo rm -f /etc/conf.d/._cfg0000_modules
+sudo rm -f /etc/ansible/._cfg0000_ansible.cfg
 
 sudo find /etc/ -name '._cfg*'					# DEBUG: list all remaining config files needing an update
 sudo etc-update --verbose --automode -5			# force 'auto-merge' for remaining configs
