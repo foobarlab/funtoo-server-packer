@@ -8,14 +8,20 @@ fi
 sudo env-update
 source /etc/profile
 
-sudo emerge --verbose --depclean
+sudo emerge --depclean
 
-sudo etc-update --preen
+sudo find /etc/ -name '._cfg*'				# DEBUG: list all config files needing an update
+
+sudo etc-update --verbose --preen			# auto-merge trivial changes
 sudo rm -f /etc/._cfg0000_boot.conf			# prevent replacement of our boot.conf
 sudo rm -f /etc/._cfg0000_genkernel.conf	# prevent replacement of our genkernel.conf
-sudo find /etc/ -name '._cfg*'				# DEBUG: list all remaining config files needing an update
-sudo etc-update --automode -5				# force 'auto-merge' for remaining configs 
+sudo rm -f /etc/._cfg0000_updatedb.conf		# prevent replacement of our updatedb.conf
 
+sudo find /etc/ -name '._cfg*'				# DEBUG: list all remaining config files needing an update
+
+sudo etc-update --verbose --automode -5		# force 'auto-merge' for remaining configs 
+
+sudo eselect kernel list
 sudo boot-update
 
 cd /usr/src/linux
@@ -26,7 +32,6 @@ sudo rm -f /etc/resolv.conf.bak
 
 sudo rm -rf /var/cache/portage/distfiles/*
 sudo rm -rf /var/git/meta-repo
-#sudo rm -rf /var/log/*
 
 sudo sync
 
