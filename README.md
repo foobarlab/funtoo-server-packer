@@ -7,7 +7,7 @@ It is based on the [Funtoo Core Vagrant box](https://github.com/foobarlab/funtoo
 
  - Minimal Funtoo Linux installation with server flavor
  - Architecture: pure64, generic_64 (currently only on Intel CPU, no AMD support)
- - 100 GB dynamic sized HDD image (ext4)
+ - 16 GB dynamic sized HDD image (ext4)
  - Timezone: ```UTC```
  - NAT Networking using DHCP (virtio)
  - Vagrant user *vagrant* with password *vagrant* (can get superuser via sudo without password), additionally using the default SSH authorized keys provided by Vagrant (see https://github.com/hashicorp/vagrant/tree/master/keys) 
