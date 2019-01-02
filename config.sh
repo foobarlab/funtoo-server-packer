@@ -19,7 +19,7 @@ export BUILD_BOX_PROVIDER="virtualbox"
 
 export BUILD_TIMESTAMP="$(date --iso-8601=seconds)"
 
-export BUILD_BOX_RELEASE_NOTES="Funtoo 1.2, Debian Kernel 4.9 LTS, GCC 7.3.1, VirtualBox Guest Additions 5.2.22, Ansible"		# edit this to reflect actual setup
+export BUILD_BOX_RELEASE_NOTES="Funtoo 1.3, Debian Kernel 4.9.130 LTS, GCC 7.4.1, VirtualBox Guest Additions 5.2.22, Ansible"		# edit this to reflect actual setup
 
 BUILD_BOX_DESCRIPTION="$BUILD_BOX_NAME version $BUILD_BOX_VERSION"
 if [ -z ${BUILD_TAG+x} ]; then
@@ -30,7 +30,7 @@ else
 	# NOTE: for Jenkins builds we got some additional information: BUILD_NUMBER, BUILD_ID, BUILD_DISPLAY_NAME, BUILD_TAG, BUILD_URL
 	BUILD_BOX_DESCRIPTION="$BUILD_BOX_DESCRIPTION ($BUILD_TAG)"
 fi
-export BUILD_BOX_DESCRIPTION="$BUILD_BOX_DESCRIPTION<br>created @$BUILD_TIMESTAMP<br>$BUILD_BOX_RELEASE_NOTES"
+export BUILD_BOX_DESCRIPTION="$BUILD_BOX_RELEASE_NOTES<br><br>$BUILD_BOX_DESCRIPTION<br>created @$BUILD_TIMESTAMP"
 
 export BUILD_UNRESTRICTED_LICENSES="false"	# set to true to allow all licenses (if true then Vagrant Cloud upload is disabled)
 
