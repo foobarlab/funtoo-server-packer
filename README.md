@@ -6,7 +6,7 @@ It is based on the [Funtoo Core Vagrant box](https://github.com/foobarlab/funtoo
 ### What's included?
 
  - Minimal Funtoo Linux 1.3 installation with server flavor
- - Architecture: pure64, generic_64
+ - Architecture: x86-64bit, generic_64
  - 20 GB dynamic sized HDD image (ext4)
  - Timezone: ```UTC```
  - NAT Networking using DHCP (virtio)
